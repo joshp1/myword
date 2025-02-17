@@ -1,7 +1,12 @@
 {
     "name": "MyWord",
+    "description": "This is a very simple barebones word processor. It don't have formating yet. I made it for writing at work on my android.",
+    "id": "https://joshp1.github.io/myword",
+    "category": ["productivity"],
+    "orientation":"any",
     "short_name": "MWP",
     "start_url": "/myword/",
+    "display_override": ["fullscreen", "minimal-ui"],
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#FFFFFF",
@@ -16,5 +21,8 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ]
+    ],
+    "launch_handler": {
+        "client_mode":"auto"
+    }
 }
