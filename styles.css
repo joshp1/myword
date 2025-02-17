@@ -1,0 +1,138 @@
+body {
+    background-color: #000;
+    color :#fff
+}
+
+.buttone {
+    width: 20px;
+    height:20px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 2px;
+}
+.buttone:hover {
+    background-color: #ddd;
+}
+.buttone:active {
+    background-color :#ddd;
+}
+
+.container {
+    width: 90%;
+    max-width: 1880px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.toolbar {
+    margin-bottom: 10px;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+button:active{
+    background-color: #000;
+    color: #fff;
+}
+button:focus {
+    background-color: #000;
+    color :#fff;
+}
+.menu {
+    width:90%;position:absolute;display:block;margin-bottom: 2px;
+}
+.item {
+    cursor: default;
+    display:block;
+    float: left;
+    padding-right:5px;
+    padding-left:5px;
+}
+.item:first-letter {
+    text-decoration: underline;
+}
+.item:hover {
+    background-color: #222;
+}
+.item:hover .item-content {
+display:block;
+}
+
+.item-content {
+    display: none;
+    position: absolute;
+    background-color:#222;
+    min-width: 16px;
+    z-index: 1;
+}
+.item-option:hover {
+    background-color: #111;
+}
+.item-option::first-letter {
+    text-decoration: underline;
+}
+.item-content span {
+    border: .1px solid #111;
+    color: white;
+    padding :8px 6px;
+    display :block;
+}
+
+.helpWin
+{
+    background-color: #222;cursor:default;display:none;
+    position:fixed;
+    height:842px;width :636px;
+    top:22px;left:222px;z-index :1;
+}
+.titlebar
+{   background-color: #111;padding: 0px 11px 22px 22px;
+}
+.hlepcl
+{
+    float: right;font-size:28px;
+    border: 2px solid #333;
+}
+.hlpeTitel
+{
+    font-size: 22px;
+}
+.helpbody
+{
+    display:block;
+    position: relative;
+}
+
+.editor {
+    border: 1px solid #fff;
+    caret-shape: block;
+    display:block;
+    font-size: 16px;
+    height:93%;
+    left:0px;
+    line-height: 1.5;
+    min-height: 100px;
+    overflow-y: auto;
+    padding: 10px;
+    position:absolute;
+    top:30px;
+    width :97%;
+    white-space: pre-wrap;
+}
+.editor:focus {outline:none;
+}
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}
