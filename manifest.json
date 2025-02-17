@@ -1,13 +1,13 @@
 {
     "name": "MyWord",
     "short_name": "MWP",
-    "start_url": "/projects/alpha/webTextEditor/",
+    "start_url": "/myword/",
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#FFFFFF",
     "icons": [
         {
-            "src": "/icons/icon-192.png",
+            "src": "/myword/icons/icon-192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
