@@ -1,5 +1,5 @@
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/projects/alpha/webTextEditor/service-worker.js')
+    navigator.serviceWorker.register('/myword/service-worker.js')
         .then(registration => console.log('Service Worker registered:', registration))
         .catch(error => console.log('Service Worker registration failed:', error));
 }

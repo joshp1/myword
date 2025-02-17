@@ -1,10 +1,10 @@
 const CACHE_NAME = 'pwa-word-processor-v2'; // Update cache name when changing files
 const urlsToCache = [
-    '/projects/alpha/webTextEditor/',
-    '/projects/alpha/webTextEditor/index.html',
-    '/projects/alpha/webTextEditor/styles.css',
-    '/projects/alpha/webTextEditor/script.js',
-    '/projects/alpha/webTextEditor/manifest.json'
+    '/myword/',
+    '/myword/index.html',
+    '/myword/styles.css',
+    '/myword/script.js',
+    '/myword/manifest.json'
 ];
 
 // Install Service Worker & Cache Files
