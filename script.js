@@ -5,7 +5,7 @@ if ('serviceWorker' in navigator) {
 }
 
 function saveText() {
-    const text = document.getElementById('editor').textContent;
+    const text = document.getElementById('editor').innerHTML;
     localStorage.setItem('savedText', text);
     alert('Text saved!');
 }
@@ -13,7 +13,7 @@ function saveText() {
 window.onload = function() {
     const savedText = localStorage.getItem('savedText');
     if (savedText) {
-        document.getElementById('editor').textContent = savedText;
+        document.getElementById('editor').innerHTML = savedText;
     }
 };
 
@@ -24,19 +24,27 @@ document.getElementById('editor').addEventListener('input', function() {
 
 // Load file content into the editor
 function loadFile(event) {
-    if (!event || !event.target || !event.target.files) return; // Ensure event is valid
-    const file = event.target.files[0]; // Get the selected file
-    if (!file) return; // If no file is selected, exit
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.txt,.html'; // Allow text and HTML files
 
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        document.getElementById('editor').textContent = e.target.result;
-        localStorage.setItem('savedText', e.target.result); // Save to localStorage
+    input.onchange = function(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('editor').innerHTML = e.target.result;
+            localStorage.setItem('savedText', e.target.result); // Auto-save content
+        };
+        reader.readAsText(file);
     };
-    reader.readAsText(file);
+
+    input.click(); // Trigger file selection dialog
 }
+
 function saveFile() {
-    const content = document.getElementById('editor').textContent;
+    const content = document.getElementById('editor').innerHTML;
     const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
@@ -45,26 +53,43 @@ function saveFile() {
 }
 
 function newFile () {
-    newF = document.getElementById ('editor').textContent = "";
+    
+    document.getElementById('editor').innerHTML = ""; // Clear content
+    localStorage.removeItem('savedText'); // Remove saved data
 }
 
-var modal=document.getElementById ("hlpWin");
-var madol=document.getElementById ("abtWin");
-var bta = document.getElementById ("hlp");
-var btb = document.getElementById ("abt");
+window.onload = function() {
+    // Load saved text on refresh
+    const savedText = localStorage.getItem('savedText');
+    if (savedText) {
+        document.getElementById('editor').innerHTML = savedText;
+    }
 
-var spn = document.getElementById ('hlpm');
-var nps = document.getElementById ('abtm');
+    // Fix modal elements and event listeners
+    var modal = document.getElementById("hlpWin");
+    var madol = document.getElementById("abtWin");
+    var bta = document.getElementById("hlp");
+    var btb = document.getElementById("abt");
+    var spn = document.getElementById('hlpm');
+    var nps = document.getElementById('abtm');
 
-bta.onclick = function () {
-    modal.style.display = 'block';
-}
-btb.onclick = function () {
-    madol.style.display = 'block';
-}
-spn.onclick = function () {
-    modal.style.display = 'none';
-}
-nps.onclick = function () {
-    madol.style.display = 'none';
-}
+    bta.onclick = function () {
+        modal.style.display = 'block';
+    };
+    btb.onclick = function () {
+        madol.style.display = 'block';
+    };
+    spn.onclick = function () {
+        modal.style.display = 'none';
+    };
+    nps.onclick = function () {
+        madol.style.display = 'none';
+    };
+};
+
+// Disable overscroll refresh on mobile
+window.addEventListener('touchmove', function(event) {
+    if (window.scrollY === 0) {
+        event.preventDefault();
+    }
+}, { passive: false });

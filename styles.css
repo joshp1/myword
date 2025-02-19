@@ -1,9 +1,20 @@
 body {
     background-color: #000;
     color :#fff;
-    overscroll-behavior-y:contain;
+    position: fixed;
+    width: 100%;
 }
-html{overscroll-behavior-block:none;overscroll-behavior-y:contain;}
+html, body {
+    overscroll-behavior: none;  /* Disable scroll chaining */
+    touch-action: pan-y;        /* Prevent unexpected gestures */
+    height: 100vh;              /* Ensure full viewport coverage */
+    overflow: hidden;           /* Disable bounce scroll */
+}
+
+.editor {
+    overflow-y: auto;           /* Allow scrolling only in editor */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling */
+}
 
 .buttone {
     width: 20px;
