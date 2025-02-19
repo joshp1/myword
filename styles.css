@@ -3,6 +3,7 @@ body {
     color :#fff;
     overscroll-behavior:unset;
 }
+html{overscroll-behavior-block:none;overscroll-behavior:unset;}
 
 .buttone {
     width: 20px;
