@@ -36,9 +36,9 @@ function loadFile(event) {
         reader.onload = function(e) {
             document.getElementById('editor').value = e.target.result;
         };
+        reader.readAsText (file);
     };
-
-    input.click(); // Trigger file selection dialog
+    input.click ();
 }
 
 function saveFile() {
