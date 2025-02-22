@@ -35,9 +35,7 @@ function loadFile(event) {
         const reader = new FileReader();
         reader.onload = function(e) {
             document.getElementById('editor').value = e.target.result;
-            localStorage.setItem('savedText', e.target.result); // Auto-save content
         };
-        reader.readAsText(file);
     };
 
     input.click(); // Trigger file selection dialog
