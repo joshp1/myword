@@ -34,7 +34,7 @@ function loadFile(event) {
 
         const reader = new FileReader();
         reader.onload = function(e) {
-            document.getElementById('editor').innerHTML = e.target.result;
+            document.getElementById('editor').value = e.target.result;
             localStorage.setItem('savedText', e.target.result); // Auto-save content
         };
         reader.readAsText(file);
@@ -44,7 +44,7 @@ function loadFile(event) {
 }
 
 function saveFile() {
-    const content = document.getElementById('editor').innerHTML;
+    const content = document.getElementById('editor').value;
     const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
@@ -54,7 +54,7 @@ function saveFile() {
 
 function newFile () {
     
-    document.getElementById('editor').innerHTML = ""; // Clear content
+    document.getElementById('editor').value = ""; // Clear content
     localStorage.removeItem('savedText'); // Remove saved data
 }
 
