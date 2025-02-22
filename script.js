@@ -69,22 +69,22 @@ window.onload = function() {
     var modal = document.getElementById("hlpWin");
     var madol = document.getElementById("abtWin");
     var bta = document.getElementById("hlp");
-    var btb = document.getElementById("abt");
-    var spn = document.getElementById('hlpm');
-    var nps = document.getElementById('abtm');
+   // var btb = document.getElementById("abt");
+    // var spn = document.getElementById('hlpm');
+    // var nps = document.getElementById('abtm');
 
     bta.onclick = function () {
         modal.style.display = 'block';
     };
-    btb.onclick = function () {
-        madol.style.display = 'block';
-    };
-    spn.onclick = function () {
-        modal.style.display = 'none';
-    };
-    nps.onclick = function () {
-        madol.style.display = 'none';
-    };
+    // btb.onclick = function () {
+        // madol.style.display = 'block';
+    // };
+    // spn.onclick = function () {
+     //    modal.style.display = 'none';
+    // };
+    // nps.onclick = function () {
+     //   madol.style.display = 'none';
+    // };
 };
 
 // Disable overscroll refresh on mobile

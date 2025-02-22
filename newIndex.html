@@ -9,9 +9,19 @@
         <link rel="manifest" href = "manifest.json" />
     </Head>
     <body>
-        <div>
-            <button id = "Save" value="Save" />
-            <button id = "Help" value="Help" />
+
+        <!-- Toolbar for save open and help-->
+        <div class = "toolbar">
+            <button id = "Nw1" onclick = "newFile()">N</button>
+            <button id = "op1" onclick = "document.getElementById('fileInput').click()">O</button>
+            <button id = "sv1" onclick="saveFile ()">S</button>
+            <button id = "hlp">H</button>
         </div>
-    </body>
-</HTML>
+
+        <!-- Hidden area for the open dialog to appear -->
+        <input type="file" id="fileInput" accept=".txt" style="display: none;" onchange="loadFile(event)">
+        <!-- writing area -->
+        <textarea class="editor" id = "editor"></textarea>
+        <!-- <div contenteditable = "true" class = "editor" id = "editor"></div >-->
+
+<script src="script.js"></script></body></HTML>
