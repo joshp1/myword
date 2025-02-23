@@ -5,7 +5,7 @@ if ('serviceWorker' in navigator) {
 }
 
 function saveText() {
-    const text = document.getElementById('editor').innerHTML;
+    const text = document.getElementById('editor').value;
     localStorage.setItem('savedText', text);
     alert('Text saved!');
 }
@@ -41,14 +41,72 @@ function loadFile(event) {
     input.click ();
 }
 
-function saveFile() {
-    const content = document.getElementById('editor').textContent;
-    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'document.txt';
-    link.click();
-    URL.revokeObjectURL(link.href); // Clean up the URL object
+async function saveFile() {
+    // Check if the File System Access API is supported
+    if ('showSaveFilePicker' in window) {
+        try {
+            // Define file options
+            const options = {
+                suggestedName: 'default-filename.txt',
+                types: [
+                    {
+                        description: 'Text Files',
+                        accept: { 'text/plain': ['.txt'] },
+                    },
+                ],
+            };
+
+            // Show save file picker
+            const handle = await window.showSaveFilePicker(options);
+
+            // Create a writable stream
+            const writable = await handle.createWritable();
+
+            // Get the content from the textarea
+            const content = document.getElementById('editor').value;
+
+            // Write the content to the file
+            await writable.write(content);
+
+            // Close the stream
+            await writable.close();
+
+            console.log('File saved successfully.');
+        } catch (error) {
+            console.error('Save operation failed:', error);
+        }
+    } else {
+        // Fallback for unsupported browsers
+        downloadFileFallback();
+    }
+}
+
+function downloadFileFallback() {
+    // Get the content from the textarea
+    const content = document.getElementById('editor').value;
+
+    // Create a blob with the content
+    const blob = new Blob([content], { type: 'text/plain' });
+
+    // Create an object URL for the blob
+    const url = URL.createObjectURL(blob);
+
+    // Create a link element
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'default-filename.txt';
+
+    // Append the link to the document
+    document.body.appendChild(a);
+
+    // Programmatically click the link to trigger the download
+    a.click();
+
+    // Remove the link from the document
+    document.body.removeChild(a);
+
+    // Revoke the object URL
+    URL.revokeObjectURL(url);
 }
 
 function newFile () {
