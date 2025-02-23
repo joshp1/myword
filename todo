@@ -1,11 +1,13 @@
 ## BUGS ##
-1) Closes randomly on android.
-2) Looses formatting on refresh.
-3) Menu is badly formatted and a bit of a waist.
-4) Help menu don't help\
+ 1) Closes randomly on android.
+ 2) Looses formatting on refresh.
+/3) Menu is badly formatted and a bit of a waist. -- maybe squashed --
+ 4) Help menu don't help
 
 ##########
 ## TODO ##
 ##########
-1) replace Div with Textarea should fix bugs 1&2
-2) Replace file & help menu with tool bar to save and open and help.
+[x] replace <div> with <textarea> should fix bugs 1&2
+[x] Replace file & help menu with tool bar to save and open and help.
+[ ] Change the Letters in the toolbar menu to images for each and space help a little away.
+[ ] Maybe add formatting controls.
