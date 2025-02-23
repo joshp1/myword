@@ -42,12 +42,13 @@ function loadFile(event) {
 }
 
 function saveFile() {
-    const content = document.getElementById('editor').value;
+    const content = document.getElementById('editor').textContent;
     const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.download = 'document.txt';
     link.click();
+    URL.revokeObjectURL(link.href); // Clean up the URL object
 }
 
 function newFile () {
