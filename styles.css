@@ -134,7 +134,9 @@ display:block;
 }
 
 .editor {
+    background-color: #000;
     border: 1px solid #fff;
+    color: #FFF;
     caret-shape: block;
     display:block;
     font-size: 16px;
