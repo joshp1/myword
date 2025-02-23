@@ -1,4 +1,5 @@
-<HTML>
+<!DOCTYPE html>
+<HTML lang="en">
     <Head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +20,10 @@
         </div>
 
         <!-- Hidden area for the open dialog to appear -->
-        <!-- <input type="file" id="fileInput" accept=".txt" >-->
+        <input type="file" id="fileInput" style = "visibility: hidden;">
+        <!-- Label styled as a button -->
+        <label for="fileInput" style="cursor: pointer;">Upload File</label>
+
         <!-- writing area -->
         <textarea class="editor" id = "editor"></textarea>
         <!-- <div contenteditable = "true" class = "editor" id = "editor"></div >-->
