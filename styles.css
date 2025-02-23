@@ -132,7 +132,15 @@ display:block;
     display:block;
     position: relative;
 }
-
+.mbtn1 {
+    background-color:#000;
+    border: 1px solid #fff;
+    color: #fff;
+}
+.mbrn1, #hlp
+{
+    margin-left: 208px;
+}
 .editor {
     background-color: #000;
     border: 1px solid #fff;
